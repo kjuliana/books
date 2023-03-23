@@ -1,15 +1,34 @@
 import React from 'react';
+import styles from './SelectSection.module.css';
 
-const options = ['all', 'art', 'biography', 'computers', 'history', 'medical', 'poetry'];
+interface SelectSectionProps {
+    options: string[],
+    name: string,
+    selectedValue: string,
+    onChange: (value:string)=>{}
+}
 
-const Select = () => {
+const SelectSection = ({name, options, selectedValue, onChange}: SelectSectionProps) => {
     return (
-        <div>
-            <select>
-                {options.map(option => <option value={option}>option</option>)}
+        <div className={styles.root}>
+            <span>{name} </span>
+            <select
+                className={styles.section}
+                value={selectedValue}
+                name={name}
+                onChange={event => onChange(event.target.value)}
+            >
+                {options.map(option =>
+                    <option
+                        key={option}
+                        value={option}
+                    >
+                        {option}
+                    </option>
+                )}
             </select>
         </div>
     );
 };
 
-export default Select;
+export default SelectSection;

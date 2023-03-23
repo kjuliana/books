@@ -1,0 +1,21 @@
+.root {
+    background: #1a73e8;
+    border: none;
+    border-radius: 15px;
+    width: 110px;
+    height: 50px;
+    padding: 14px;
+    margin: 21px;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.root:hover {
+    background: #1a62e8;
+}
+
+.root:active {
+    background: #1a43e8;
+}

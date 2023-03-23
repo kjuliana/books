@@ -1,0 +1,32 @@
+.root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    background: #1a73e8;
+    flex-direction: column;
+    color: white;
+}
+
+.logo{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.container {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+}
+
+.selectSections {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 20px;
+}

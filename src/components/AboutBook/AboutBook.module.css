@@ -1,0 +1,40 @@
+.root {
+    width: 70%;
+    margin: 50px auto;
+    display: flex;
+}
+
+.infoWrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+}
+
+.imageWrapper {
+    width: 40%;
+    height: fit-content;
+    background-color: rgb(223 223 223 / 30%);
+    flex-shrink: 0;
+}
+
+.image {
+    margin: 20px;
+    width: 80%;
+    flex-shrink: 0;
+    box-shadow: 2px 2px 20px 1px #6d6d6d57
+}
+
+.textWrapper {
+    border-top: 1px solid gray;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.importantText {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.notes {
+    color: gray;
+}
