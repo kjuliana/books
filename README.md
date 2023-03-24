@@ -1,4 +1,4 @@
-# Тестовое задание Books search App
+# <img align="top" height="40px" src="/public/icon.png"/> Тестовое задание Books search App
 
 React-приложение поиска книг с использованием Google Books API.
 
