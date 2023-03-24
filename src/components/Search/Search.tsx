@@ -1,35 +1,43 @@
 import React, {useState} from 'react';
 import {useSearchActions} from "../../hooks/useSearchActions";
 import styles from './Search.module.css';
-import {Link} from "react-router-dom";
 
 const Search = () => {
     const [search, setSearch] = useState('');
     const {updateSearch} = useSearchActions();
 
-    const onClickSearch = () => {
+    const onClickSearch= ( ) => {
         if (search.length > 0) {
             updateSearch(search);
         }
     }
 
     return (
-        <div className={styles.root}>
+        <form
+            onSubmit={(event)=>{
+                event.preventDefault();
+                onClickSearch();
+            }}
+            className={styles.root}>
             <input
                 className={styles.input}
                 autoComplete='off'
                 placeholder='Поиск'
                 type='search'
+                value={search}
                 onChange={e => setSearch(e.target.value)}
             />
-            <Link
-                to={'/'}
+            <button
                 className={styles.search}
-                onClick={onClickSearch}
+                onClick={(event)=>{
+                    event.preventDefault();
+                    onClickSearch();
+                }}
+                type="submit"
             >
                 🔎
-            </Link>
-        </div>
+            </button>
+        </form>
     );
 };
 

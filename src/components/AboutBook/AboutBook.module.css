@@ -38,3 +38,19 @@
 .notes {
     color: gray;
 }
+
+@media (max-width: 767px) {
+    .root {
+        flex-direction: column;
+    }
+    .imageWrapper {
+        width: 100%;
+        margin-top: 20px;
+    }
+    .infoWrapper {
+        padding: 0;
+    }
+    .textWrapper {
+        padding: 20px 0;
+    }
+}

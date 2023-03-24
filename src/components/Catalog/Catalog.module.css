@@ -2,5 +2,11 @@
     width: 80%;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fill, 25%);
+    grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+}
+
+@media (max-width: 767px) {
+    .root {
+        width: 100%;
+    }
 }

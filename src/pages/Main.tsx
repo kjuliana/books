@@ -28,16 +28,18 @@ const Main = () => {
     }, [filter, sort, search])
 
     useEffect(() => {
-        if (data) {
+        if (data && data.items) {
             const filteredBooks = filter === 'all'
                 ? data.items
                 : data.items.filter(book => book.volumeInfo.categories?.includes(filter))
-
+            console.log(filteredBooks)
             if (index === 0) {
                 setBooks([...filteredBooks])
             } else {
                 setBooks([...books, ...filteredBooks])
             }
+        } else {
+            setBooks([])
         }
     }, [data, filter])
 
@@ -46,12 +48,13 @@ const Main = () => {
     if (isError) return <Layout>Something went wrong</Layout>
     if (!data) return <Layout>Nothing is found</Layout>
 
-    console.log(books);
     return (
         <Layout>
             <p>Found {data.totalItems} results</p>
             <Catalog books={books}/>
-            <Button onClick={() => setIndex(index + 30)} name='Load more'/>
+            {
+                books.length > 0 && <Button onClick={() => setIndex(index + 30)} name='Load more'/>
+            }
         </Layout>
     );
 };

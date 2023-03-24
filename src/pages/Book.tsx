@@ -10,7 +10,7 @@ const Book = () => {
     const id = params.id ?? '';
     const {data, isError, isLoading} = useBookPageQuery(id);
     if (isLoading) return <Layout><Loader/></Layout>
-    if (!data || isError) return <Layout>Идите обратно</Layout>
+    if (!data || isError) return <Layout>So, there's empty</Layout>
     return (
         <Layout>
             <AboutBook book={data.volumeInfo}/>
