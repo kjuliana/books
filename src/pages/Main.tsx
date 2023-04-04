@@ -32,14 +32,7 @@ const Main = () => {
             const filteredBooks = filter === 'all'
                 ? data.items
                 : data.items.filter(book => book.volumeInfo.categories?.includes(filter))
-            console.log(filteredBooks)
-            if (index === 0) {
-                setBooks([...filteredBooks])
-            } else {
-                setBooks([...books, ...filteredBooks])
-            }
-        } else {
-            setBooks([])
+            setBooks((prev) => [...prev, ...filteredBooks])
         }
     }, [data, filter])
 
