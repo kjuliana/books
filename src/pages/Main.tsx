@@ -15,7 +15,6 @@ const Main = () => {
 
     const args = {
         search: search,
-        filter: filter,
         sort: sort,
         startIndex: index
     }
@@ -25,16 +24,21 @@ const Main = () => {
 
     useEffect(() => {
         setIndex(0);
-    }, [filter, sort, search])
+        setBooks([])
+    }, [sort, search])
 
     useEffect(() => {
         if (data && data.items) {
-            const filteredBooks = filter === 'all'
-                ? data.items
-                : data.items.filter(book => book.volumeInfo.categories?.includes(filter))
-            setBooks((prev) => [...prev, ...filteredBooks])
+            setBooks((prev) => [...prev, ...data.items])
+        } else {
+            setBooks([])
         }
-    }, [data, filter])
+    }, [data])
+
+    const filteredBooks = filter === 'all'
+        ? books
+        : books.filter(book => book.volumeInfo.categories?.includes(filter))
+
 
     if (search.length < 1) return <Layout> <h1>Lets Search!</h1> </Layout>
     if (isLoading) return <Layout><Loader/></Layout>
@@ -44,9 +48,9 @@ const Main = () => {
     return (
         <Layout>
             <p>Found {data.totalItems} results</p>
-            <Catalog books={books}/>
+            <Catalog books={filteredBooks}/>
             {
-                books.length > 0 && <Button onClick={() => setIndex(index + 30)} name='Load more'/>
+                filteredBooks.length > 0 && <Button onClick={() => setIndex(index + 30)} name='Load more'/>
             }
         </Layout>
     );

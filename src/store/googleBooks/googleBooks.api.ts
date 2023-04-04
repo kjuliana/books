@@ -5,7 +5,6 @@ const apiKey = 'AIzaSyAGFggYtsHjV66VYmeR3tFhNcAIb9TcWlY';
 
 type argsType = {
     search: string,
-    filter: string,
     sort: string,
     startIndex: number
 }
